@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan-2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <!-- Other mouse event -->
+    <!-- <div id="app">
+        <div v-if = "showBooks">
+            <p>{{title}}, {[author}}, {{age}}</p>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <br>
+
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouse leave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position  - {{ x }} {{ y }}</div>
+    </div> -->
+
+    <!-- Outputting list (v-for) -->
+    <!-- <div id="app">
+        <div v-if = "showBooks">
+            <ul>
+                <li v-for="book in books">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div> -->
+
+    <!-- Attribute Binding -->
+    <!-- <div id="app">
+        <a :href="url">Best website ever</a>
+
+        <div v-if = "showBooks">
+            <ul>
+                <li v-for="book in books">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div> -->
+    
+    <!-- Dynamic Classes -->
+    <!-- <div id="app">
+        <a :href="url">Best website ever</a>
+
+        <div v-if = "showBooks">
+            <ul>
+                <li v-for="book in books" :class="{fav: book.isFav}">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div> -->
+
+    <!-- Challenge 1A -->
+    <!-- <div id="app">
+        <a :href="url">Best website ever</a>
+
+        <div v-if = "showBooks">
+            <div v-if="showFavBooks">
+                <ul>
+                    <li v-for="book in books" :class="{fav: book.isFav}">
+                        <img :src="book.img" :alt="book.title">
+                        <h3>{{book.title}}</h3>
+                        <p>{{book.author}}</p>
+                    </li>
+                </ul>
+            </div>
+
+            <button @click="toggleShowFav">
+                <span v-if="showFavBooks">Hide Books</span>
+                <span v-else>Show Books</span>
+            </button>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div> -->
+
+    <!-- Challenge 1B -->
+    <!-- <div id="app">
+        <a :href="url">Best website ever</a>
+
+        <div v-if = "showBooks">
+            <ul>
+                <li @click="toggleShowFav(book)" v-for="book in books" :class="{fav: book.isFav}">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div> -->
+    
+    <!-- Computed Properties -->
+    <div id="app">
+        <a :href="url">Best website ever</a>
+
+        <div v-if = "showBooks">
+            <ul>
+                <li @click="toggleShowFav(book)" v-for="book in filteredBooks" :class="{fav: book.isFav}">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+        
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

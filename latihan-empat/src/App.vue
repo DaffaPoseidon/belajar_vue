@@ -2,17 +2,18 @@
   <h1>Reaction Timer</h1>
   <button @click="start" v-bind:disabled="isPlaying">Play</button>
   <Block v-if="isPlaying" v-bind:delay="delay" @end="endGame" />
-  <p v-if="showResults">Reaction time: {{score}} ms</p>
+  <Results v-if="showResults" v-bind:score="score"/>
 </template>
 
 <script>
 
 import Block from './components/Block.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'App',
   components: {
-    Block
+    Block, Results
   },
   data(){
     return{

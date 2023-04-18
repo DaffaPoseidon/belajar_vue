@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+    <!-- 1. Memeriksa apakah Vue sudah berfungsi atau belum dengan Vue CDN -->
+    <h1>Hello Vue :)</h1>
+
+    <!-- 2. Membuat App Vue -->
+    <!-- <div id="app"></div> -->
+
+    <!-- 3. Data and Templates -->
+    <!-- <div id="app">
+        <p>{{title}}, {{author}}, {{age}}</p>
+    </div> -->
+
+    <!-- 4. Click Events -->
+    <!-- <div id="app">
+        <p>{{title}}, {{author}}, {{age}}</p>
+        <button v-on:click="age++">Tambah umur</button>
+        <button v-on:click="age--">Kurang umur</button>
+        <div @click="changeTitle('NieR: Replicant')">Ganti nama buku</div>
+    </div> -->
+
+    <!-- 5. Conditional Rendering -->
+    <div id="app">
+        <div v-if="showBooks">
+            <p>{{title}}, {{author}}, {{age}}</p>
+        </div>
+        <br>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+        <div v-show="showBooks">Currently showing Books</div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

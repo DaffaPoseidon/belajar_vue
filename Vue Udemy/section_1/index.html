@@ -8,14 +8,22 @@
 
 <body>
     <div id="app" v-cloak>
-        {{fullName()}}
+        <p> {{fullName()}}</p>
+        <hr>
+
+        <label>Add your first name</label>
+        <input type="text" v-model="firstName">
+
+        <label>Add your last name</label>
+        <br>
+        <input type="text " v-model="lastName">
     </div>
-    <!-- <div id="app2">
+    <!-- <div id="app2 ">
         {{firstName}} {{lastName}}
     </div>
     <div>Hai!</div> -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js "></script>
+    <script src="app.js "></script>
 </body>
 
 </html>

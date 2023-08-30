@@ -4,13 +4,20 @@ const vm = Vue.createApp({
             firstName: 'Daffa',
             lastName: 'NieR',
             url: 'https://google.com/',
-            source_url: '<a href="https://google.com/" target="_blank">Google</a>'
+            source_url: '<a href="https://google.com/" target="_blank">Google</a>',
+            age: '20'
         }
     },
 
     methods: {
         fullName() {
             return `${this.firstName} ${this.lastName.toUpperCase()}`
+        },
+        increment() {
+            this.age++
+        },
+        changeName(event) {
+            lastName = event.target.value
         }
     },
 

@@ -13,11 +13,11 @@
             <a v-bind:href="url" target="_blank">Google</a>
         </p>
         <p v-html="source_url"></p>
-        <p>Age: {{age}}</p>
+        <p>Age: {{typeof age}}</p>
         <hr>
 
         <label>Add your first name</label>
-        <input type="text" v-model="firstName">
+        <input type="text" v-model.lazy.trim="firstName">
         <br>
 
         <label>Add your middle name</label>
@@ -29,6 +29,7 @@
         <input type="text " v-model="lastName" @input.prevent="updateLastName('Name has been updated', $event)">
 
         <br>
+        <input type="number" v-model.number="age">
         <button type="button" v-on:click="increment">Increment</button>
         <button type="button" v-on:click="age--">Decrement</button>
     </div>

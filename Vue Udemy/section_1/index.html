@@ -8,7 +8,7 @@
 
 <body>
     <div id="app" v-cloak>
-        <p> {{fullName()}}</p>
+        <p>{{fullName()}}</p>
         <p>
             <a v-bind:href="url" target="_blank">Google</a>
         </p>
@@ -18,6 +18,11 @@
 
         <label>Add your first name</label>
         <input type="text" v-model="firstName">
+        <br>
+
+        <label>Add your middle name</label>
+        <input type="text" @keyup.enter="updateMiddleName">
+        <br>
 
         <label>Add your last name</label>
         <br>

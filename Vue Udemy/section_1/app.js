@@ -11,9 +11,9 @@ const vm = Vue.createApp({
     },
 
     methods: {
-        fullName() {
-            return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
-        },
+        // fullName() {
+        //     return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
+        // },
         increment() {
             this.age++
         },
@@ -26,6 +26,13 @@ const vm = Vue.createApp({
             this.middleName = event.target.value
         }
     },
+    computed: {
+        fullName() {
+            console.log("Computed telah dijalankan")
+
+            return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
+        },
+    }
 
 }).mount('#app')
 

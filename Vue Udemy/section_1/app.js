@@ -24,16 +24,24 @@ const vm = Vue.createApp({
         updateMiddleName(event) {
             console.log(event)
             this.middleName = event.target.value
-        }
+        },
     },
+
     computed: {
         fullName() {
             console.log("Computed telah dijalankan")
 
             return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
         },
-    }
+    },
 
+    watch: {
+        age(newVal, oldVal) {
+            setTimeout(() => {
+                this.age = 20
+            }, 3000)
+        }
+    }
 }).mount('#app')
 
 setTimeout(() => {

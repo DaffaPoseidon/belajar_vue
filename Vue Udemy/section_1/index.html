@@ -21,7 +21,7 @@
 
         <label>Add your last name</label>
         <br>
-        <input type="text " v-model="lastName" @input="updateLastName('Name has been updated', $event)">
+        <input type="text " v-model="lastName" @input.prevent="updateLastName('Name has been updated', $event)">
 
         <br>
         <button type="button" v-on:click="increment">Increment</button>

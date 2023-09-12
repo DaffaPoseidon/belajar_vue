@@ -9,8 +9,14 @@
 <body>
     <div id="app">
         <p v-if="mode == 1">V-if</p>
-        <p v-else-if="mode == 2">V-else-if</p>
+        <template v-else-if="mode == 2">
+          <div>
+            <p>Else-if</p>
+          </div>
+        </template>
         <p v-else>V-else</p>
+
+        <p v-show="mode == 2">Hai hai hai</p>
 
         <select v-model="mode">
         <option value="1">V-if</option>

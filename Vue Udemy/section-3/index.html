@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>VueJS Course</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="mode == 1">V-if</p>
+        <p v-else-if="mode == 2">V-else-if</p>
+        <p v-else>V-else</p>
+
+        <select v-model="mode">
+        <option value="1">V-if</option>
+        <option value="2">V-else-if</option>
+        <option value="3">V-else</option>
+      </select>
+    </div>
+
+    <script src="https://unpkg.com/vue@next "></script>
+    <script src="app.js "></script>
+</body>
+
+</html>

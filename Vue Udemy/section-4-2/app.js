@@ -1,8 +1,12 @@
-let vm = Vue.createApp({
-  data() {
-    return {
-      message: "Hello world!"
-    }
+const data = {
+  name: 'Luis'
+}
+
+const observedData = new Proxy(data, {
+  set(target, key, value) {
+    console.log(`Value of ${key} changed to ${value}`);
+    target[key] = value
   }
-  
-}).mount('#app')
+})
+observedData.name = 'John'
+console.log(observedData.name)

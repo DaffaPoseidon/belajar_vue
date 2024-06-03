@@ -9,13 +9,19 @@
         <button class="btn-search btn btn-primary">Search <i class="fas fa-search"></i></button>
       </div>
     </div>
+    <br>
+    <Weather></Weather>
   </div>
 </template>
 
 <script>
-export default {
+
+import Weather from './components/Weather.vue';
+
+export default (await import('vue')).defineComponent({
   name: 'App',
   components: {
+    Weather
   },
   data() {
     return {
@@ -30,7 +36,7 @@ export default {
       this.showWeather = true;
     }
   }
-}
+})
 </script>
 
 <style>

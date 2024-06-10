@@ -3,10 +3,10 @@
     <div class="d-flex">
       <div class="card main-div w-100">
         <div class="p-3">
-          <h2 class="mb-1 day">Tuesday</h2>
+          <h2 class="mb-1 day">Today</h2>
           <p class="text-light date mb-0">{{date}}</p>
           <small>{{time}}</small>
-          <h2 class="place"><i class="fa fa-location">{{ name }}<small>{{ country }}</small></i></h2>
+          <h2 class="place"><i class="fa fa-location">{{ name }} <small>{{ country }}</small></i></h2>
           <div class="temp">
             <h1 class="weather-temp">{{ temperature }}&deg;</h1>
             <h2 class="text-light">{{description}}</h2>
@@ -18,24 +18,25 @@
         <tbody>
           <tr>
             <th>Sea level</th>
-            <td>100</td>
+            <td v-if="sea_level > 0">{{sea_level}}</td>
+            <td v-else>No Sea</td>
           </tr>
           <tr>
-            <th>Sea level</th>
-            <td>100</td>
+            <th>Humidity</th>
+            <td>{{humidty}}</td>
           </tr>
           <tr>
-            <th>Sea level</th>
-            <td>100</td>
+            <th>Wind</th>
+            <td>{{wind}}</td>
           </tr>
         </tbody>
       </table>
 
-      <DaysWeather></DaysWeather>
+      <DaysWeather :cityname="cityname"></DaysWeather>
 
       <div id="div_Form" class="d-flex m-3 justify-content-center">
         <form action="">
-          <input type="button" value="Change Location" class="btn chang-btn btn-primary">
+          <input type="button" value="Change Location" @click="changeLocation" class="btn chang-btn btn-primary">
         </form>
       </div>
     </div>
@@ -59,21 +60,35 @@ export default (await import('vue')).defineComponent({
   },
   data() {
     return {
+      cityname: this.city,
       temperature: null,
       description: null,
       // iconUrl: null,
       date: null,
       time: null,
       name: null,
+      sea_level: null,
+      wind: null,
+      humidity: null,
+      country: null,
       monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    }
+  },
+  methods: {
+    changeLocation() {
+      window.location.reload();
     }
   },
   async created() {
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=1b1c40fe8ec5737d7fa663236ab52cae`)
     const weatherData = response.data;
-    this.temperature = weatherData.main.temp;
+    this.temperature = Math.round(weatherData.main.temp);
     this.description = weatherData.weather[0].description;
     this.name = weatherData.name;
+    this.wind = weatherData.wind.speed;
+    this.sea_level = weatherData.main.sea_level;
+    this.country = weatherData.sys.country;
+    this.humidity = weatherData.main.humidity;
     // this.iconUrl = `https://api.openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
     const d = new Date();
     this.date = d.getDate() + "-" + this.monthNames[d.getMonth()] + "-" + d.getFullYear();

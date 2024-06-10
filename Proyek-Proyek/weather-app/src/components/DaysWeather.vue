@@ -45,7 +45,7 @@
         margin: auto;
     }
 
-    .Loading {
+    .loading {
         color: #fff;
     }
 
@@ -61,6 +61,7 @@
         max-width: 21%;
         font-size: 1vw;
         line-height: 1.2;
+        color: white;
     }
 
     span {

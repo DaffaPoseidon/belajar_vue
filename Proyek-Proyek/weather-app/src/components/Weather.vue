@@ -1,7 +1,7 @@
 <template>
   <div class="container p-0">
     <div class="d-flex">
-      <div class="card main-div w-100">
+      <div class="card main-div w-100 p-4 m-1">
         <div class="p-3">
           <h2 class="mb-1 day">Today</h2>
           <p class="text-light date mb-0">{{date}}</p>
@@ -13,33 +13,33 @@
           </div>
         </div>
       </div>
-      <div class="card card-2 w-100">
-      <table class="m-4">
-        <tbody>
-          <tr>
-            <th>Sea level</th>
-            <td v-if="sea_level > 0">{{sea_level}}</td>
-            <td v-else>No Sea</td>
-          </tr>
-          <tr>
-            <th>Humidity</th>
-            <td>{{humidty}}</td>
-          </tr>
-          <tr>
-            <th>Wind</th>
-            <td>{{wind}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card card-2 w-100 d-flex p-4 m-1">
+        <table class="m-4">
+          <tbody>
+            <tr>
+              <th>Sea level</th>
+              <td v-if="sea_level > 0">{{sea_level}}</td>
+              <td v-else>No Sea</td>
+            </tr>
+            <tr>
+              <th>Humidity</th>
+              <td>{{humidty}}</td>
+            </tr>
+            <tr>
+              <th>Wind</th>
+              <td>{{wind}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <DaysWeather :cityname="cityname"></DaysWeather>
+        <DaysWeather :cityname="cityname"></DaysWeather>
 
-      <div id="div_Form" class="d-flex m-3 justify-content-center">
-        <form action="">
-          <input type="button" value="Change Location" @click="changeLocation" class="btn chang-btn btn-primary">
-        </form>
+        <div id="div_Form" class="d-flex m-3 justify-content-center">
+          <form action="">
+            <input type="button" value="Change Location" @click="changeLocation" class="btn chang-btn btn-primary">
+          </form>
+        </div>
       </div>
-    </div>
     </div>
     
   </div>
@@ -116,14 +116,19 @@ export default (await import('vue')).defineComponent({
   }
 
   .main-div {
-    border-radius: 20px;
+    /* border-radius: 20px;
     color: #fff;
-    background-image: url("https://wallpapercave.com/wp/wp9498634.jpg");
+    background-image: url("/img/wallpaper.jpg");
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
     background: rgba(0, 0, 0, 0.5);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+
+    border-radius: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5) url("/img/wallpaper.jpg") center/cover no-repeat;
+    background-blend-mode: overlay;
   }
 
   .temp{
